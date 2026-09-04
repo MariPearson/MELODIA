@@ -2,7 +2,7 @@
 /**
   ******************************************************************************
   * @file           : main.c
-  * @brief          : Melodia Star Wars usando las funciones del profesor
+  * @brief          : Escala musical usando DWT
   ******************************************************************************
   */
 /* USER CODE END Header */
@@ -22,24 +22,14 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-/* Frecuencias exactas en Hz para cada nota musical */
-/* USER CODE BEGIN PD */
-/* Frecuencias exactas en Hz para cada nota musical */
-#define NOTE_A3  220
-#define NOTE_A4  440
-#define NOTE_AS4 466
 #define NOTE_C4  262
-#define NOTE_C5  523
 #define NOTE_D4  294
-#define NOTE_D5  587
 #define NOTE_E4  330
-#define NOTE_E5  659
 #define NOTE_F4  349
-#define NOTE_F5  698
 #define NOTE_G4  392
-#define NOTE_GS4 415
-#define NOTE_A5  880
-/* USER CODE END PD */
+#define NOTE_A4  440
+#define NOTE_B4  494
+#define NOTE_C5  523
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -52,24 +42,12 @@
 /* USER CODE BEGIN PV */
 uint32_t pasos = 0;
 
-/* Partitura de Star Wars (Frecuencia de cada nota) */
 int melodia[] = {
-  NOTE_A4, NOTE_A4, NOTE_A4, 
-  NOTE_F4, NOTE_C5, 
-  NOTE_A4, NOTE_F4, NOTE_C5, NOTE_A4,
-  NOTE_E5, NOTE_E5, NOTE_E5, 
-  NOTE_F5, NOTE_C5, 
-  NOTE_GS4, NOTE_F4, NOTE_C5, NOTE_A4
+  NOTE_C4, NOTE_D4, NOTE_E4, NOTE_F4, NOTE_G4, NOTE_A4, NOTE_B4, NOTE_C5
 };
 
-/* Duracion de cada nota en milisegundos */
 int duracion[] = {
-  500, 500, 500, 
-  350, 150, 
-  500, 350, 150, 650,
-  500, 500, 500, 
-  350, 150, 
-  500, 350, 150, 650
+  500, 500, 500, 500, 500, 500, 500, 500
 };
 /* USER CODE END PV */
 
@@ -136,10 +114,10 @@ int main(void)
     for (int i = 0; i < total_notas; i++)
     {
       Sound_play(melodia[i], duracion[i]);
-      HAL_Delay(30); /* Breve separacion para articular bien las notas */
+      HAL_Delay(30);
     }
 
-    HAL_Delay(3000); /* Pausa de 3 segundos antes de volver a empezar */
+    HAL_Delay(3000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
